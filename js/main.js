@@ -4,6 +4,7 @@ $(function () {
 
   $(".header").on({
     mouseenter: function () {
+      // GNB Animation
       $(".gnb ul li .toggle").stop().slideDown(500);
       $(".header .inner-header").addClass("background");
       $(".header .logo a:last-child img").css({
@@ -52,7 +53,9 @@ $(function () {
     variableWidth: true,
     autoplay: true,
     autoplaySpeed: 1000,
+    speed: 800,
     centerMode: true,
+    pauseOnHover: true,
   });
 
   $(".event .event-item").slick({
