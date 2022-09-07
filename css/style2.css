@@ -63,15 +63,50 @@ a {
 
   border: 2px solid yellowgreen;
 }
+.header .inner-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background-color: transparent;
+  transition: 0.5s;
+}
+.header .inner-header.background::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 400px;
+  background-color: #fff;
+}
 
 .header .logo {
+  position: relative;
+  width: 115px;
+  height: 22px;
 }
 .header .logo a {
+}
+.header .logo a img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  object-fit: cover;
+}
+.header .logo a:first-child img {
+}
+.header .logo a:last-child img {
+  display: none;
 }
 
 .header .gnb {
   position: absolute;
   left: 30%;
+  z-index: 100;
 }
 .header .gnb ul {
   display: flex;
@@ -79,24 +114,49 @@ a {
 .header .gnb ul li {
   margin-right: 35px;
   width: 100px;
+  box-sizing: border-box;
+  white-space: nowrap;
 }
-.header .gnb ul li a {
-  color: #fff;
+
+.header .gnb ul li a.gnb-cat {
+  position: relative;
+  display: block;
+  width: 100px;
+  height: 70px;
+  line-height: 70px;
   font-size: 16px;
+  color: #fff;
+}
+.header .gnb ul li a.gnb-cat::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: 0.7s;
+}
+.header .gnb ul li a.gnb-cat.line::after {
+  content: "";
+  position: absolute;
+  width: 100px;
+  height: 5px;
+  left: 0;
+  bottom: 0;
+  background-color: #0b2c5f;
 }
 
 .header .gnb ul li .ul {
   position: absolute;
-  top: 70px;
-  width: 110px;
-  display: flex;
-  flex-direction: column;
+  top: 100px;
+  width: 100px;
+
+  display: none;
 }
 .header .gnb ul li .ul li {
-  margin-bottom: 20px;
-  width: 110px;
-
-  border: 3px solid tomato;
+  width: 100px;
+  height: 45px;
 }
 .header .gnb ul li .ul li a {
   display: inline-block;
@@ -105,6 +165,9 @@ a {
 }
 
 .header .side-menu {
+  position: absolute;
+  z-index: 100;
+  right: 50px;
 }
 .header .side-menu a {
   display: inline-block;
@@ -124,7 +187,6 @@ a {
 .main section .inner {
   position: relative;
   max-width: 1200px;
-  /*width: 100%;*/
   margin: 0 auto;
 }
 
@@ -151,13 +213,13 @@ a {
   justify-content: center;
   align-items: center;
 
-  background-image: url("../image/casper.png");
+  background-color: tomato;
+  /* background-image: url("../image/casper.png"); */
   background-repeat: no-repeat;
   background-size: cover;
 
   text-align: center;
   color: #fff;
-
   /* 영상 화면 밖으로 나가는 부분 가려지게 하기 */
   overflow: hidden;
 }
