@@ -65,4 +65,33 @@ $(function () {
     autoplay: true,
     autoplaySpeed: 1500,
   });
+
+  $(".main .recommend .recommend-items .item .image img").on({
+    mouseenter: function () {
+      $(this).parents(".item").find(".info").css({
+        opacity: "1",
+        visibility: "visible",
+        transform: "translateY(0)",
+      });
+    },
+    mouseleave: function () {
+      $(this).parents(".item").find(".info").css({
+        opacity: "0",
+        visibility: "hidden",
+        transform: "translateY(100%)",
+        transition: "0.5s",
+      });
+    },
+  });
+
+  const imgOffset = $(".main .event .event-item").offset().top;
+
+  $(window).scroll(function () {
+    const now = $(this).scrollTop();
+    const nowScrollTop = parseInt(now);
+
+    if (nowScrollTop >= imgOffset) {
+      $(".main .recommend .recommend-items .item").addClass("active");
+    }
+  });
 });
